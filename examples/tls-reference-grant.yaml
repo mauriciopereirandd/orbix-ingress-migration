@@ -1,0 +1,15 @@
+# Exemplo: ReferenceGrant para permitir acesso cross-namespace a secrets TLS
+
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: ReferenceGrant
+metadata:
+  name: allow-tls-from-traefik
+  namespace: cert-namespace
+spec:
+  from:
+  - group: gateway.networking.k8s.io
+    kind: Gateway
+    namespace: traefik-system
+  to:
+  - group: ""
+    kind: Secret
