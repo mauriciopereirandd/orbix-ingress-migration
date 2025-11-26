@@ -1,13 +1,13 @@
 # traefik-values.yaml
 image:
-  tag: "v3.0"
+  tag: "v3.2"
 
 # Configuração do deployment
 deployment:
   enabled: true
   replicas: 2
   
-# Porta diferente do Nginx para coexistência
+# Portas padrão (não precisa customizar)
 ports:
   web:
     port: 8000
@@ -21,49 +21,52 @@ ports:
       enabled: true
   metrics:
     port: 9100
-    expose: true
+    expose:
+      default: true
     protocol: TCP
 
-# Habilitar Gateway API Provider
+# Providers - habilitando múltiplos
 providers:
-  kubernetesGateway:
-    enabled: true
+  # Ingress padrão do Kubernetes (para compatibilidade)
   kubernetesIngress:
     enabled: true
     publishedService:
       enabled: true
+  # IngressRoute do Traefik (recomendado para uso principal)
+  kubernetesCRD:
+    enabled: true
+    allowCrossNamespace: true
+    allowExternalNameServices: true
+  # Gateway API (experimental - habilite quando quiser testar)
+  # kubernetesGateway:
+  #   enabled: true
 
 # Service configuration
 service:
   enabled: true
   type: LoadBalancer
-  # Usar annotations diferentes do Nginx
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-internal: "false"
-  # Usar um IP diferente ou deixar o cloud provider alocar
-  # loadBalancerIP: "SEU_IP_AQUI"  # Comentar para auto-alocação
 
-# Logs e Observabilidade
+# Logs
 logs:
   general:
     level: INFO
   access:
     enabled: true
 
-# Métricas Prometheus
+# Métricas
 metrics:
   prometheus:
     enabled: true
     entryPoint: metrics
 
-# Dashboard (desabilitar em produção)
+# Dashboard
 ingressRoute:
   dashboard:
-    enabled: true
-    matchRule: Host(`traefik.local.domain`)
-    entryPoints: ["websecure"]
+    enabled: false
 
-# Resource limits
+# Resources
 resources:
   requests:
     cpu: "100m"
@@ -72,23 +75,12 @@ resources:
     cpu: "1000m"
     memory: "512Mi"
 
-# Pod disruption budget
+# PDB
 podDisruptionBudget:
   enabled: true
   minAvailable: 1
 
-# Autoscaling
-autoscaling:
-  enabled: false
-  minReplicas: 2
-  maxReplicas: 10
-  metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      targetAverageUtilization: 70
-
-# Security context
+# Security
 securityContext:
   capabilities:
     drop: [ALL]
@@ -96,8 +88,3 @@ securityContext:
   runAsGroup: 65532
   runAsNonRoot: true
   runAsUser: 65532
-
-# GatewayClass configuration
-gatewayClass:
-  enabled: true
-  name: traefik
