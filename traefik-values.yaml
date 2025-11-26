@@ -25,21 +25,16 @@ ports:
       default: true
     protocol: TCP
 
-# Providers - habilitando múltiplos
+# Providers - usando apenas Traefik nativo e Gateway API
 providers:
-  # Ingress padrão do Kubernetes (para compatibilidade)
-  kubernetesIngress:
-    enabled: true
-    publishedService:
-      enabled: true
-  # IngressRoute do Traefik (recomendado para uso principal)
+  # IngressRoute do Traefik (CRD nativo)
   kubernetesCRD:
     enabled: true
     allowCrossNamespace: true
     allowExternalNameServices: true
-  # Gateway API (experimental - habilite quando quiser testar)
-  # kubernetesGateway:
-  #   enabled: true
+  # Gateway API (padrão moderno K8s)
+  kubernetesGateway:
+    enabled: true
 
 # Service configuration
 service:

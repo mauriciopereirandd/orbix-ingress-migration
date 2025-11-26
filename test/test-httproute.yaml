@@ -1,19 +1,18 @@
+---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: whoami-route
+  name: whoami-httproute
   namespace: test-migration
 spec:
   parentRefs:
   - name: main-gateway
     namespace: traefik-system
-  hostnames:
-  - "whoami.test.example.com"
   rules:
   - matches:
     - path:
         type: PathPrefix
-        value: /
+        value: /whoami-gw
     backendRefs:
     - name: whoami
       port: 80
