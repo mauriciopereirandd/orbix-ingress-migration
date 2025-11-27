@@ -1,0 +1,34 @@
+---
+# HTTPRoute para Agent Logs
+# Path: /agent-logs/* → /*
+# Rate: 20 rps, Body: 12MB
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: agent-logs-httproute
+  namespace: orbix
+spec:
+  parentRefs:
+  - name: main-gateway
+    namespace: traefik-system
+  hostnames:
+  - "homolog-portal.nddorbix.com"
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /agent-logs/
+    filters:
+    - type: URLRewrite
+      urlRewrite:
+        path:
+          type: ReplacePrefixMatch
+          replacePrefixMatch: /
+    - type: ExtensionRef
+      extensionRef:
+        group: traefik.io
+        kind: Middleware
+        name: agent-logs-middleware
+    backendRefs:
+    - name: agent-logs-service
+      port: 80

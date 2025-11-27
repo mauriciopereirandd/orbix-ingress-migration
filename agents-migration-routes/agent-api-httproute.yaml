@@ -1,0 +1,34 @@
+---
+# HTTPRoute para Agent API
+# Path: /agent-api/* → /*
+# Rate: 50 rps, Body: 500MB, Timeout: 240s
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: agent-api-httproute
+  namespace: orbix
+spec:
+  parentRefs:
+  - name: main-gateway
+    namespace: traefik-system
+  hostnames:
+  - "homolog-portal.nddorbix.com"
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /agent-api/
+    filters:
+    - type: URLRewrite
+      urlRewrite:
+        path:
+          type: ReplacePrefixMatch
+          replacePrefixMatch: /
+    - type: ExtensionRef
+      extensionRef:
+        group: traefik.io
+        kind: Middleware
+        name: agent-api-middleware
+    backendRefs:
+    - name: agent-api-service
+      port: 80

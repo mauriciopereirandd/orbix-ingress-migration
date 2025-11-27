@@ -40,6 +40,7 @@ providers:
 service:
   enabled: true
   type: LoadBalancer
+  loadBalancerIP: "68.220.28.215"
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-internal: "false"
 
@@ -59,7 +60,9 @@ metrics:
 # Dashboard
 ingressRoute:
   dashboard:
-    enabled: false
+    enabled: true
+    matchRule: PathPrefix(`/dashboard`) || PathPrefix(`/api`)
+    entryPoints: ["web"]
 
 # Resources
 resources:
