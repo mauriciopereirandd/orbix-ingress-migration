@@ -12,7 +12,7 @@ spec:
   - name: main-gateway
     namespace: traefik-system
   hostnames:
-  - "homolog-portal.nddorbix.com"
+  - "homolog-agent.nddorbix.com"
   rules:
   - matches:
     - path:

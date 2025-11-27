@@ -1,7 +1,6 @@
 ---
 # Middlewares do Traefik para rate limiting, buffering e timeouts
 # Replicam as configurações do Nginx Ingress
-
 # Agent API Middleware
 ---
 apiVersion: traefik.io/v1alpha1
@@ -23,7 +22,7 @@ metadata:
   namespace: orbix
 spec:
   rateLimit:
-    average: 50  # 50 rps (requests per second)
+    average: 50
     period: 1s
     burst: 100
 
@@ -35,10 +34,9 @@ metadata:
   namespace: orbix
 spec:
   buffering:
-    maxRequestBodyBytes: 524288000  # 500MB
+    maxRequestBodyBytes: 524288000
 
 ---
-# Agent Logs Middleware
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
@@ -58,7 +56,7 @@ metadata:
   namespace: orbix
 spec:
   rateLimit:
-    average: 20  # 20 rps
+    average: 20
     period: 1s
     burst: 40
 
@@ -70,10 +68,9 @@ metadata:
   namespace: orbix
 spec:
   buffering:
-    maxRequestBodyBytes: 12582912  # 12MB
+    maxRequestBodyBytes: 12582912
 
 ---
-# Agent SDK Middleware
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
@@ -81,12 +78,11 @@ metadata:
   namespace: orbix
 spec:
   rateLimit:
-    average: 15  # 15 rps
+    average: 15
     period: 1s
     burst: 30
 
 ---
-# Agent SignalR Middleware
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
@@ -94,6 +90,6 @@ metadata:
   namespace: orbix
 spec:
   rateLimit:
-    average: 10  # 10 rps
+    average: 10
     period: 1s
     burst: 20
