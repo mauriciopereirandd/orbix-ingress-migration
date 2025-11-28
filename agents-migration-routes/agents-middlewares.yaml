@@ -93,3 +93,37 @@ spec:
     average: 10
     period: 1s
     burst: 20
+
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: dca-api-middleware
+  namespace: orbix
+spec:
+  chain:
+    middlewares:
+    - name: dca-api-ratelimit
+    - name: dca-api-buffering
+
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: dca-api-ratelimit
+  namespace: orbix
+spec:
+  rateLimit:
+    average: 30
+    period: 1s
+    burst: 60
+
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: dca-api-buffering
+  namespace: orbix
+spec:
+  buffering:
+    maxRequestBodyBytes: 52428800

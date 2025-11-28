@@ -1,0 +1,1247 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/core/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8082
+        }
+      ],
+      "UpstreamPathTemplate": "/core/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/assets/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/assets/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/specs/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/specs/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/resources/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/resources/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/layout/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8083
+        }
+      ],
+      "UpstreamPathTemplate": "/layout/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/global-styles/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8484
+        }
+      ],
+      "UpstreamPathTemplate": "/global-styles/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/printer/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8085
+        }
+      ],
+      "UpstreamPathTemplate": "/printer/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9701
+        }
+      ],
+      "UpstreamPathTemplate": "/image-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9701
+        }
+      ],
+      "UpstreamPathTemplate": "/image-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/agents/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8086
+        }
+      ],
+      "UpstreamPathTemplate": "/agents/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/ndp-agents/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8086
+        }
+      ],
+      "UpstreamPathTemplate": "/ndp-agents/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/computer/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8587
+        }
+      ],
+      "UpstreamPathTemplate": "/computer/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/thermal/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8030
+        }
+      ],
+      "UpstreamPathTemplate": "/thermal/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/ecotoner/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8060
+        }
+      ],
+      "UpstreamPathTemplate": "/ecotoner/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/stock/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8050
+        }
+      ],
+      "UpstreamPathTemplate": "/stock/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/dashboard/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8040
+        }
+      ],
+      "UpstreamPathTemplate": "/dashboard/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/hub",
+      "DownstreamScheme": "ws",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9000
+        }
+      ],
+      "UpstreamPathTemplate": "/core-api/hub",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE",
+        "OPTIONS"
+      ],
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9000
+        }
+      ],
+      "UpstreamPathTemplate": "/core-api/{url}",
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9090
+        }
+      ],
+      "UpstreamPathTemplate": "/platform-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9090
+        }
+      ],
+      "UpstreamPathTemplate": "/platform-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "9091"
+        }
+      ],
+      "UpstreamPathTemplate": "/billing-api/",
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "9091"
+        }
+      ],
+      "UpstreamPathTemplate": "/billing-api/{url}",
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9003
+        }
+      ],
+      "UpstreamPathTemplate": "/integration-tool/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9003
+        }
+      ],
+      "UpstreamPathTemplate": "/integration-tool/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9004
+        }
+      ],
+      "UpstreamPathTemplate": "/integration-mps-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9004
+        }
+      ],
+      "UpstreamPathTemplate": "/integration-mps-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9002
+        }
+      ],
+      "UpstreamPathTemplate": "/dca-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9002
+        }
+      ],
+      "UpstreamPathTemplate": "/dca-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9005
+        }
+      ],
+      "UpstreamPathTemplate": "/printer-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9005
+        }
+      ],
+      "UpstreamPathTemplate": "/printer-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9060
+        }
+      ],
+      "UpstreamPathTemplate": "/printer-monitoring-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9060
+        }
+      ],
+      "UpstreamPathTemplate": "/printer-monitoring-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9043
+        }
+      ],
+      "UpstreamPathTemplate": "/agent-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9043
+        }
+      ],
+      "UpstreamPathTemplate": "/agent-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9013
+        }
+      ],
+      "UpstreamPathTemplate": "/agent-integration-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9013
+        }
+      ],
+      "UpstreamPathTemplate": "/agent-integration-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8585
+        }
+      ],
+      "UpstreamPathTemplate": "/computer-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8585
+        }
+      ],
+      "UpstreamPathTemplate": "/computer-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8586
+        }
+      ],
+      "UpstreamPathTemplate": "/computer-integration-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8586
+        }
+      ],
+      "UpstreamPathTemplate": "/computer-integration-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8031
+        }
+      ],
+      "UpstreamPathTemplate": "/thermal-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8031
+        }
+      ],
+      "UpstreamPathTemplate": "/thermal-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9061
+        }
+      ],
+      "UpstreamPathTemplate": "/thermal-integration-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9061
+        }
+      ],
+      "UpstreamPathTemplate": "/thermal-integration-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8061
+        }
+      ],
+      "UpstreamPathTemplate": "/ecotoner-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8061
+        }
+      ],
+      "UpstreamPathTemplate": "/ecotoner-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8062
+        }
+      ],
+      "UpstreamPathTemplate": "/ecotoner-dca-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8062
+        }
+      ],
+      "UpstreamPathTemplate": "/ecotoner-dca-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9050
+        }
+      ],
+      "UpstreamPathTemplate": "/stock-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9050
+        }
+      ],
+      "UpstreamPathTemplate": "/stock-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9047
+        }
+      ],
+      "UpstreamPathTemplate": "/agent-sdk/",
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 5,
+        "DurationOfBreak": 1000,
+        "TimeoutValue": 600000
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9047
+        }
+      ],
+      "UpstreamPathTemplate": "/agent-sdk/{url}",
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 5,
+        "DurationOfBreak": 1000,
+        "TimeoutValue": 600000
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9048
+        }
+      ],
+      "UpstreamPathTemplate": "/agent-logs/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9048
+        }
+      ],
+      "UpstreamPathTemplate": "/agent-logs/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/hub/{catchAll}",
+      "DownstreamScheme": "ws",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9012
+        }
+      ],
+      "UpstreamPathTemplate": "/agent-signalr/hub/{catchAll}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE",
+        "OPTIONS"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9040
+        }
+      ],
+      "UpstreamPathTemplate": "/dashboard-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9040
+        }
+      ],
+      "UpstreamPathTemplate": "/dashboard-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9041
+        }
+      ],
+      "UpstreamPathTemplate": "/dashboard-integration-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9041
+        }
+      ],
+      "UpstreamPathTemplate": "/dashboard-integration-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9051
+        }
+      ],
+      "UpstreamPathTemplate": "/printer-integration-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9051
+        }
+      ],
+      "UpstreamPathTemplate": "/printer-integration-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9052
+        }
+      ],
+      "UpstreamPathTemplate": "/printer-agent-data-collector-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9054
+        }
+      ],
+      "UpstreamPathTemplate": "/printer-agent-data-collector-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5080
+        }
+      ],
+      "UpstreamPathTemplate": "/policies-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5080
+        }
+      ],
+      "UpstreamPathTemplate": "/policies-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/reports/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3233
+        }
+      ],
+      "UpstreamPathTemplate": "/reports/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ],
+      "UpstreamPathTemplate": "/ndk-reports-api/",
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ],
+      "UpstreamPathTemplate": "/ndk-reports-api/{url}",
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/ndd-dashboard/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5011
+        }
+      ],
+      "UpstreamPathTemplate": "/ndd-dashboard/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5010
+        }
+      ],
+      "UpstreamPathTemplate": "/ndd-dashboard-api/",
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5010
+        }
+      ],
+      "UpstreamPathTemplate": "/ndd-dashboard-api/{url}",
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/ndp-alerts/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5013
+        }
+      ],
+      "UpstreamPathTemplate": "/ndp-alerts/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5012
+        }
+      ],
+      "UpstreamPathTemplate": "/ndp-alerts-api/",
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5012
+        }
+      ],
+      "UpstreamPathTemplate": "/ndp-alerts-api/{url}",
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/ndk-policies-home-page/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8019
+        }
+      ],
+      "UpstreamPathTemplate": "/ndk-policies-home-page/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/scheduling-client-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/scheduling-client-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/print-queue/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9600
+        }
+      ],
+      "UpstreamPathTemplate": "/print-queue/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9602
+        }
+      ],
+      "UpstreamPathTemplate": "/print-queue-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9602
+        }
+      ],
+      "UpstreamPathTemplate": "/print-queue-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9603
+        }
+      ],
+      "UpstreamPathTemplate": "/print-queue-agent-data-collector-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9603
+        }
+      ],
+      "UpstreamPathTemplate": "/print-queue-agent-data-collector-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 18404
+        }
+      ],
+      "UpstreamPathTemplate": "/helper-api/",
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 18404
+        }
+      ],
+      "UpstreamPathTemplate": "/helper-api/{url}",
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{RemoteIpAddress}"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3232
+        }
+      ],
+      "UpstreamPathTemplate": "/software/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8500
+        }
+      ],
+      "UpstreamPathTemplate": "/software/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8501
+        }
+      ],
+      "UpstreamPathTemplate": "/software-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8501
+        }
+      ],
+      "UpstreamPathTemplate": "/software-api/{url}"
+    },
+    {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8503
+        }
+      ],
+      "UpstreamPathTemplate": "/software-integration-api/"
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8503
+        }
+      ],
+      "UpstreamPathTemplate": "/software-integration-api/{url}"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:53676"
+  },
+  "RequestSettings": {
+    "MaxRequestBodySize": "524288000"
+  }
+}
