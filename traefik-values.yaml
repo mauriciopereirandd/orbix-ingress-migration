@@ -13,12 +13,24 @@ ports:
     port: 8000
     exposedPort: 80
     protocol: TCP
+    # Configura para aceitar X-Forwarded-For do Load Balancer
+    forwardedHeaders:
+      trustedIPs:
+        - 10.0.0.0/8      # Rede interna do AKS
+        - 172.16.0.0/12   # Rede interna
+        - 192.168.0.0/16  # Rede interna
   websecure:
     port: 8443
     exposedPort: 443
     protocol: TCP
     tls:
       enabled: true
+    # Configura para aceitar X-Forwarded-For do Load Balancer
+    forwardedHeaders:
+      trustedIPs:
+        - 10.0.0.0/8      # Rede interna do AKS
+        - 172.16.0.0/12   # Rede interna
+        - 192.168.0.0/16  # Rede interna
   metrics:
     port: 9100
     expose:
@@ -40,16 +52,43 @@ providers:
 service:
   enabled: true
   type: LoadBalancer
-  loadBalancerIP: "68.220.28.215"
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-internal: "false"
+    service.beta.kubernetes.io/azure-pip-name: "pip-agents-orbix-traefik-ipv4-prod-eu"
+    service.beta.kubernetes.io/azure-load-balancer-resource-group: "MC_rg-orbix-aks-prod-eu_cluster-aks-orbix-prod-eu_germanywestcentral"
+    # Habilita preservação do IP de origem (requer AKS 1.16+)
+    service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset: "true"
+  externalTrafficPolicy: Local  # Preserva o IP de origem do cliente
 
 # Logs
 logs:
   general:
     level: INFO
+    format: json  # Formato JSON para melhor parsing
   access:
     enabled: true
+    format: json  # Formato JSON estruturado
+    # Campos customizados para logar IP real do cliente
+    fields:
+      defaultMode: keep
+      names:
+        ClientAddr: keep          # IP do cliente (será o IP real)
+        RequestHost: keep          # Host da requisição
+        RequestMethod: keep        # Método HTTP
+        RequestPath: keep          # Path da requisição
+        RequestProtocol: keep      # Protocolo (HTTP/1.1, etc)
+        StatusCode: keep           # Status code da resposta
+        Duration: keep             # Duração da requisição
+        RouterName: keep           # Nome do router que processou
+        ServiceName: keep          # Nome do service backend
+        OriginStatus: keep         # Status do backend
+      headers:
+        defaultMode: keep
+        names:
+          X-Forwarded-For: keep    # IP real do cliente
+          X-Real-IP: keep          # IP real alternativo
+          User-Agent: keep         # User agent
+          Referer: keep            # Referer
 
 # Métricas
 metrics:
@@ -60,7 +99,7 @@ metrics:
 # Dashboard
 ingressRoute:
   dashboard:
-    enabled: true
+    enabled: false
     matchRule: PathPrefix(`/dashboard`) || PathPrefix(`/api`)
     entryPoints: ["web"]
 

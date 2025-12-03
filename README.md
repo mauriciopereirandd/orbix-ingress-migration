@@ -40,9 +40,7 @@ O ambiente já está configurado. Para replicar:
 ### 1. Atualizar Traefik
 
 ```bash
-helm upgrade traefik traefik/traefik \
-  --namespace traefik-system \
-  --values traefik-values.yaml
+helm upgrade traefik traefik/traefik --namespace traefik-system --values traefik-values.yaml
 ```
 
 ### 2. Aplicar Gateway API resources
