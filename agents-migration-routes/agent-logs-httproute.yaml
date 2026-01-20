@@ -11,7 +11,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.middlewares: orbix-agent-logs-middleware@kubernetescrd
 spec:
   parentRefs:
-  - name: main-gateway
+  - name: agent-gateway
     namespace: traefik-system
   hostnames:
   - "agent.nddorbix.com"
