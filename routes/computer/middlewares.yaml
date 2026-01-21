@@ -1,0 +1,34 @@
+---
+# Computer Agent Data Collector API Middleware
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: computer-agent-dca-middleware
+  namespace: orbix
+spec:
+  chain:
+    middlewares:
+    - name: computer-agent-dca-ratelimit
+    - name: computer-agent-dca-buffering
+
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: computer-agent-dca-ratelimit
+  namespace: orbix
+spec:
+  rateLimit:
+    average: 30
+    period: 1s
+    burst: 60
+
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: computer-agent-dca-buffering
+  namespace: orbix
+spec:
+  buffering:
+    maxRequestBodyBytes: 52428800

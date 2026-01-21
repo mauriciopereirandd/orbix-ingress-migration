@@ -1,0 +1,30 @@
+---
+# HTTPRoute para Software Agent Data Collector API
+# Path: /software-agent-data-collector-api/* -> /*
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: software-agent-data-collector-api-httproute
+  namespace: orbix
+  annotations:
+    traefik.ingress.kubernetes.io/router.middlewares: orbix-software-agent-dca-middleware@kubernetescrd
+spec:
+  parentRefs:
+  - name: agent-gateway
+    namespace: traefik-system
+  hostnames:
+  - "agent.nddorbix.com"
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /software-agent-data-collector-api/
+    filters:
+    - type: URLRewrite
+      urlRewrite:
+        path:
+          type: ReplacePrefixMatch
+          replacePrefixMatch: /
+    backendRefs:
+    - name: software-agent-data-collector-api-service
+      port: 80
