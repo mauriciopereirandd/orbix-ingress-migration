@@ -1,13 +1,22 @@
-# traefik-values.yaml
+# Traefik values for Production environment (AM region)
+# Install command:
+#   helm upgrade --install agent-ingress traefik/traefik \
+#     -n traefik-system \
+#     -f values-AM.yaml \
+#     --skip-crds
+
+# Force resource names to be "agent-ingress" instead of "agent-ingress-traefik"
+fullnameOverride: agent-ingress
+
 image:
   tag: "v3.2"
 
-# Configuração do deployment
+# Deployment configuration
 deployment:
   enabled: true
   replicas: 2
-  
-# Portas padrão (não precisa customizar)
+
+# Port configuration
 ports:
   web:
     port: 8000
@@ -37,16 +46,24 @@ ports:
       default: true
     protocol: TCP
 
-# Providers - usando apenas Traefik nativo e Gateway API
+# Providers - Traefik CRD and Gateway API
 providers:
-  # IngressRoute do Traefik (CRD nativo)
   kubernetesCRD:
     enabled: true
     allowCrossNamespace: true
     allowExternalNameServices: true
-  # Gateway API (padrão moderno K8s)
+    allowEmptyServices: true
   kubernetesGateway:
     enabled: true
+    statusAddress:
+      service:
+        name: agent-ingress
+        namespace: traefik-system
+
+# GatewayClass configuration
+gatewayClass:
+  enabled: true
+  name: agent-ingress
 
 # Service configuration
 service:

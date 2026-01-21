@@ -54,12 +54,6 @@ providers:
     allowCrossNamespace: true
     allowExternalNameServices: true
     allowEmptyServices: true
-  kubernetesIngress:
-    enabled: true
-    allowEmptyServices: true
-    publishedService:
-      enabled: true
-      pathOverride: "traefik-system/agent-ingress"
   kubernetesGateway:
     enabled: true
     statusAddress:
