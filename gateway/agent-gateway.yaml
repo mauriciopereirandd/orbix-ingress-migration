@@ -5,7 +5,7 @@ metadata:
   name: agent-gateway
   namespace: traefik-system
 spec:
-  gatewayClassName: traefik
+  gatewayClassName: agent-ingress
   listeners:
   - name: http
     protocol: HTTP

@@ -1,0 +1,154 @@
+# Traefik values for Homolog environment
+# Release name: agent-ingress
+# Namespace: traefik-system
+#
+# Install command:
+#   helm upgrade --install agent-ingress traefik/traefik \
+#     -n traefik-system \
+#     -f values-HML.yaml \
+#     --skip-crds
+
+# Force resource names to be "agent-ingress" instead of "agent-ingress-traefik"
+fullnameOverride: agent-ingress
+
+image:
+  tag: "v3.2"
+
+# Deployment configuration
+deployment:
+  enabled: true
+  replicas: 2
+
+# Port configuration
+ports:
+  web:
+    port: 8000
+    exposedPort: 80
+    protocol: TCP
+    forwardedHeaders:
+      trustedIPs:
+        - 10.0.0.0/8
+        - 172.16.0.0/12
+        - 192.168.0.0/16
+  websecure:
+    port: 8443
+    exposedPort: 443
+    protocol: TCP
+    tls:
+      enabled: true
+    forwardedHeaders:
+      trustedIPs:
+        - 10.0.0.0/8
+        - 172.16.0.0/12
+        - 192.168.0.0/16
+  metrics:
+    port: 9100
+    expose:
+      default: true
+    protocol: TCP
+
+# Providers - Traefik CRD and Gateway API
+providers:
+  kubernetesCRD:
+    enabled: true
+    allowCrossNamespace: true
+    allowExternalNameServices: true
+    allowEmptyServices: true
+  kubernetesIngress:
+    enabled: true
+    allowEmptyServices: true
+    publishedService:
+      enabled: true
+      pathOverride: "traefik-system/agent-ingress"
+  kubernetesGateway:
+    enabled: true
+    statusAddress:
+      service:
+        name: agent-ingress
+        namespace: traefik-system
+
+# GatewayClass configuration
+gatewayClass:
+  enabled: true
+  name: agent-ingress
+
+# Service configuration - Azure LoadBalancer with static IP
+service:
+  enabled: true
+  type: LoadBalancer
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "false"
+    service.beta.kubernetes.io/azure-pip-name: "pip-agents-orbix-traefik-ipv4-homolog"
+    service.beta.kubernetes.io/azure-load-balancer-resource-group: "MC_rg-orbix-aks-homolog_cluster-aks-orbix-homolog_eastus2"
+    service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset: "true"
+  externalTrafficPolicy: Local  # Preserva o IP de origem do cliente
+
+# Logs
+logs:
+  general:
+    level: INFO
+    format: json
+  access:
+    enabled: true
+    format: json
+    fields:
+      defaultMode: keep
+      names:
+        ClientAddr: keep
+        RequestHost: keep
+        RequestMethod: keep
+        RequestPath: keep
+        RequestProtocol: keep
+        StatusCode: keep
+        Duration: keep
+        RouterName: keep
+        ServiceName: keep
+        OriginStatus: keep
+      headers:
+        defaultMode: drop
+        names:
+          X-Forwarded-For: keep
+          X-Real-IP: keep
+          User-Agent: keep
+
+# Tracing - OpenTelemetry
+tracing:
+  otlp:
+    enabled: true
+    http:
+      enabled: true
+      endpoint: "http://otel-collector.observability.svc.cluster.local:4318/v1/traces"
+
+# Metrics
+metrics:
+  prometheus:
+    enabled: true
+    entryPoint: metrics
+
+# Dashboard
+ingressRoute:
+  dashboard:
+    enabled: false
+
+# Resources
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "1000m"
+    memory: "512Mi"
+
+# PDB
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
+
+# Security
+securityContext:
+  capabilities:
+    drop: [ALL]
+  readOnlyRootFilesystem: true
+  runAsGroup: 65532
+  runAsNonRoot: true
+  runAsUser: 65532
