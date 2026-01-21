@@ -86,23 +86,20 @@ logs:
     enabled: true
     format: json
     fields:
-      defaultMode: keep
-      names:
-        ClientAddr: keep
-        RequestHost: keep
-        RequestMethod: keep
-        RequestPath: keep
-        RequestProtocol: keep
-        StatusCode: keep
-        Duration: keep
-        RouterName: keep
-        ServiceName: keep
-        OriginStatus: keep
+      general:
+        defaultMode: drop
+        names:
+          ClientHost: keep
+          RequestMethod: keep
+          RequestPath: keep
+          RequestProtocol: keep
+          DownstreamStatus: keep
+          Duration: keep
+          ServiceName: keep
       headers:
         defaultMode: drop
         names:
-          X-Forwarded-For: keep
-          X-Real-IP: keep
+          X-Real-Ip: keep
           User-Agent: keep
 
 # Tracing - OpenTelemetry
@@ -118,7 +115,10 @@ metrics:
   prometheus:
     enabled: true
     entryPoint: metrics
-
+# Ping endpoint para health checks
+ping:
+  enabled: true
+  entryPoint: web
 # Dashboard
 ingressRoute:
   dashboard:

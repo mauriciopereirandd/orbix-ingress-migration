@@ -81,37 +81,37 @@ service:
 logs:
   general:
     level: INFO
-    format: json  # Formato JSON para melhor parsing
+    format: json
   access:
     enabled: true
-    format: json  # Formato JSON estruturado
-    # Campos customizados para logar IP real do cliente
+    format: json
     fields:
-      defaultMode: keep
-      names:
-        ClientAddr: keep          # IP do cliente (será o IP real)
-        RequestHost: keep          # Host da requisição
-        RequestMethod: keep        # Método HTTP
-        RequestPath: keep          # Path da requisição
-        RequestProtocol: keep      # Protocolo (HTTP/1.1, etc)
-        StatusCode: keep           # Status code da resposta
-        Duration: keep             # Duração da requisição
-        RouterName: keep           # Nome do router que processou
-        ServiceName: keep          # Nome do service backend
-        OriginStatus: keep         # Status do backend
-      headers:
-        defaultMode: keep
+      general:
+        defaultMode: drop
         names:
-          X-Forwarded-For: keep    # IP real do cliente
-          X-Real-IP: keep          # IP real alternativo
-          User-Agent: keep         # User agent
-          Referer: keep            # Referer
+          ClientHost: keep
+          RequestMethod: keep
+          RequestPath: keep
+          RequestProtocol: keep
+          DownstreamStatus: keep
+          Duration: keep
+          ServiceName: keep
+      headers:
+        defaultMode: drop
+        names:
+          X-Real-Ip: keep
+          User-Agent: keep
 
 # Métricas
 metrics:
   prometheus:
     enabled: true
     entryPoint: metrics
+
+# Ping endpoint para health checks
+ping:
+  enabled: true
+  entryPoint: web
 
 # Dashboard
 ingressRoute:
